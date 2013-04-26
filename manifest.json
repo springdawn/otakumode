@@ -1,0 +1,19 @@
+{
+    "name":"otakusakusaku",
+    "version":"0.1",
+    "manifest_version":2,
+
+    "description":"otakumode.com",
+
+    "permissions":[
+        "http://otakumode.com/*"
+    ],
+
+    "content_scripts":[
+        {
+            "matches":["http://otakumode.com/*"],
+            "js":["js/jquery-2.0.0.min.js","js/otasaku.js","js/content.js"],
+            "css":["css/style.css"]
+        }
+    ]
+}
