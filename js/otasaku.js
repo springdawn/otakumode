@@ -42,7 +42,7 @@ var otasaku = {
             otasaku.prevSel = otasaku.curSel;
             otasaku.prevSelProc();
             otasaku.curSel = f? otasaku.prevSel.next(".ArticleList"): otasaku.prevSel.prev(".ArticleList");
-            if(!otasaku.curSel.length) otasaku.curSel = f? otasaku.prevSel.nextAll(".ArticleList").first(): otasaku.prevSel.prevAll(".ArticleList").last();
+            if(!otasaku.curSel.length) otasaku.curSel = f? otasaku.prevSel.nextAll(".ArticleList").first(): otasaku.prevSel.prevAll(".ArticleList").first();
             if(!otasaku.curSel.length) {
                 otasaku.curSel = otasaku.prevSel;
                 otasaku.prevSelProc();
