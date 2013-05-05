@@ -6,9 +6,11 @@ var otasaku = {
                 otasaku.stage();
                 break;
             case 74:
+                if(j(".stage").length) break;
                 otasaku.next(true);
                 break;
             case 75:
+                if(j(".stage").length) break;
                 otasaku.next(false);
                 break;
             case 76:
