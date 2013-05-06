@@ -1,5 +1,7 @@
 #otakusakusaku
 
+[Tokyo Otaku Mode](http://otakumode.com) で使えるショートカット
+
 ##移動
 
 ###**J**
