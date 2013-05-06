@@ -3,34 +3,29 @@ var otasaku = {
         if(e.metaKey||e.altKey||e.shiftKey) return;
         switch (e.which) {
             case 73:
-                otasaku.stage();
+                j(".stage").length? otasaku.stage(true): otasaku.stage(false);
                 break;
             case 74:
-                if(j(".stage").length) break;
-                otasaku.next(true);
+                j(".stage").length? otasaku.nextOnStage(true): otasaku.next(true);
                 break;
             case 75:
-                if(j(".stage").length) break;
-                otasaku.next(false);
+                j(".stage").length? otasaku.nextOnStage(false): otasaku.next(false);
                 break;
             case 76:
-                if(j(".stage").length) otasaku.sukiToggle(j(".stage"));
-                else otasaku.sukiToggle(otasaku.curSel);
+                j(".stage").length? otasaku.sukiToggle(j(".stage")): otasaku.sukiToggle(otasaku.curSel);
                 break;
             default:
                 break;
         }
     },
     onClick: function(e) {
-        if(j(this).hasClass("ArticleList")) {
-            if(!j.isEmptyObject(otasaku.curSel)) {
-                otasaku.prevSel = otasaku.curSel;
-                otasaku.prevSelProc();
-            }
-            otasaku.prevSel = {};
-            otasaku.curSel = j(this);
-            otasaku.curSelProc();
+        if(!j.isEmptyObject(otasaku.curSel)) {
+            otasaku.prevSel = otasaku.curSel;
+            otasaku.prevSelProc();
         }
+        otasaku.prevSel = {};
+        otasaku.curSel = j(this);
+        otasaku.curSelProc();
     },
 
     prevSel: {},
@@ -78,8 +73,8 @@ var otasaku = {
         jObj.find(".ArticleAction>a>i").click();
     },
 
-    stage: function() {
-        if(j(".stage").length) {
+    stage: function(close) {
+        if(close) {
             j(".close")[0].click();
             return;
         }
@@ -88,5 +83,10 @@ var otasaku = {
         setTimeout(function() {
             j(".stage").find(".ArticleAction").addClass("otasaku-suki-display");
         },500);
+    },
+
+    nextOnStage: function(f) {
+        otasaku.next(f);
+        otasaku.stage(false);
     }
 };
