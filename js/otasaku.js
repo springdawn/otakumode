@@ -1,7 +1,11 @@
 var otasaku = {
+    baseUrl: "http://otakumode.com/",
     onKeydown: function(e) {
         if(e.metaKey||e.altKey||e.shiftKey) return;
         switch (e.which) {
+            case 72:
+                otasaku.moveTo("home");
+                break;
             case 73:
                 j(".stage").length? otasaku.stage(true): otasaku.stage(false);
                 break;
@@ -13,6 +17,9 @@ var otasaku = {
                 break;
             case 76:
                 j(".stage").length? otasaku.sukiToggle(j(".stage")): otasaku.sukiToggle(otasaku.curSel);
+                break;
+            case 85:
+                otasaku.moveTo("user");
                 break;
             default:
                 break;
@@ -88,5 +95,14 @@ var otasaku = {
     nextOnStage: function(f) {
         otasaku.next(f);
         otasaku.stage(false);
+    },
+
+    moveTo: function(type) {
+        if(type==="user") {
+            var userName = j("#navUserName").attr("href").replace("/","");
+            if(userName&&window.location.href!==otasaku.baseUrl+userName) window.location = otasaku.baseUrl+userName;
+        } else if(type==="home") {
+            if(window.location.href!==otasaku.baseUrl) window.location = otasaku.baseUrl;
+        }
     }
 };
