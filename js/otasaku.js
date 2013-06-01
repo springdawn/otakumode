@@ -3,22 +3,22 @@ var otasaku = {
     onKeydown: function(e) {
         if(e.metaKey||e.altKey||e.shiftKey) return;
         switch (e.which) {
-            case 72:
+            case 72: //H
                 otasaku.moveTo("home");
                 break;
-            case 73:
+            case 73: //I
                 j(".stage").length? otasaku.stage(true): otasaku.stage(false);
                 break;
-            case 74:
+            case 74: //J
                 j(".stage").length? otasaku.nextOnStage(true): otasaku.next(true);
                 break;
-            case 75:
+            case 75: //K
                 j(".stage").length? otasaku.nextOnStage(false): otasaku.next(false);
                 break;
-            case 76:
-                j(".stage").length? otasaku.sukiToggle(j(".stage")): otasaku.sukiToggle(otasaku.curSel);
+            case 76: //L
+                j(".stage").length? otasaku.sukiToggle(j("#stageWrapper")): otasaku.sukiToggle(otasaku.curSel);
                 break;
-            case 85:
+            case 85: //U
                 otasaku.moveTo("user");
                 break;
             default:
