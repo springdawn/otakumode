@@ -86,7 +86,7 @@ var otasaku = {
             return;
         }
         if(j.isEmptyObject(otasaku.curSel)) return;
-        otasaku.curSel.find("img").click();
+        otasaku.curSel.find("img.nomenu").click();
         setTimeout(function() {
             j(".stage").find(".ArticleAction").addClass("otasaku-suki-display");
         },500);
