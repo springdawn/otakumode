@@ -1,6 +1,6 @@
 {
     "name":"otakusakusaku",
-    "version":"1.2",
+    "version":"1.3",
     "manifest_version":2,
 
     "description":"TokyoOtakuMode(otakumode.com)内で使用可能なキーボードショートカットを追加",
