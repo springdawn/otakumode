@@ -40,13 +40,13 @@ var otasaku = {
     timeout: null,
     next: function(f) {
         if(j.isEmptyObject(otasaku.curSel)) {
-            otasaku.curSel = j(".ArticleList").first();
+            otasaku.curSel = j(".lcBox").first();
             otasaku.curSelProc();
         } else {
             otasaku.prevSel = otasaku.curSel;
             otasaku.prevSelProc();
-            otasaku.curSel = f? otasaku.prevSel.next(".ArticleList"): otasaku.prevSel.prev(".ArticleList");
-            if(!otasaku.curSel.length) otasaku.curSel = f? otasaku.prevSel.nextAll(".ArticleList").first(): otasaku.prevSel.prevAll(".ArticleList").first();
+            otasaku.curSel = f? otasaku.prevSel.next(".lcBox"): otasaku.prevSel.prev(".lcBox");
+            if(!otasaku.curSel.length) otasaku.curSel = f? otasaku.prevSel.parent().next(".clearfix").children(".lcBox").first(): otasaku.prevSel.parent().prev(".clearfix").children(".lcBox").last();
             if(!otasaku.curSel.length) {
                 otasaku.curSel = otasaku.prevSel;
                 otasaku.prevSelProc();
