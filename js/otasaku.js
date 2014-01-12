@@ -77,12 +77,14 @@ var otasaku = {
     },
 
     sukiToggle: function(jObj) {
-        jObj.find(".ArticleAction>a>i").click();
+        target = jObj.find(".ArticleAction>a>i");
+        if(!target.length) target = jObj.find(".sukiBtn>a>i");
+        target.click();
     },
 
     stage: function(close) {
         if(close) {
-            j(".close")[0].click();
+            j(".closeBtn>i").click();
             return;
         }
         if(j.isEmptyObject(otasaku.curSel)) return;
